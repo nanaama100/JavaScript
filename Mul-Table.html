@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Multiplication Table</title>
+        <link rel="stylesheet" href="time.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+    <body>
+        <main>            
+            <header><h1>Sante's Multiplication Table</h1></header>
+            <div class="icon"><i class='bx bxs-calculator'></i></div><br><br>
+            <hr style="color:  rgb(29, 26, 26);">
+                <div class="Box1"><br>
+                    <p>Kindly fill out the spaces with your required number</p><br><br>
+                    <div class="Inputs">
+                        <form id="timesTableForm">
+                            <label for="numberInput">Enter Number for TimesTable: </label>
+                            <input type="number" id="numberInput" required><br><br><br>
+                            <label for="extentInput">Enter Extent of TimesTable: </label>
+                            <input type="number" id="extentInput" required><br><br>
+                            <button id="mySubmit" type="submit">Generate Table</button>
+                        </form>
+                    </div>
+                </div> 
+                <div class="Box2">
+                    <div class="Results">
+                        <p>TimesTable</p>
+                        <div id="BigBox"></div>
+                    </div>
+                </div>
+        </main>
+        <script>
+            var timesTableForm = document.getElementById("timesTableForm");
+            var BigBox = document.getElementById("BigBox");
+            timesTableForm.addEventListener("submit", function(event){
+                event.preventDefault();
+                var number = document.getElementById("numberInput").value;
+                var extent = document.getElementById("extentInput").value;
+
+                var table= "";
+                for (var i = 1; i <= extent; i++){
+                    setTimeout(function(x){
+                        table += number + "x" + x + "=" + (number * x) + "<br>";
+                        BigBox.innerHTML= table;
+                    }, i* 1000, i);
+                }
+            });
+
+            // settime(function, delay, return)
+        </script>
+    </body>
+</html>
+
